@@ -13,7 +13,7 @@ export const connectToDB = async (): Promise<void> => {
     }
 
     try {
-        await mongoose.connect(process.env.MONGODB_URL as string)
+        await mongoose.connect(process.env.MONGODB_URI as string)
         isConnected = true
         console.log('MongoDB connected')
     } catch (error) {
