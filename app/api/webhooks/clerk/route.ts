@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
         // For this guide, log payload to console
         if (evt.type === 'user.created') {
             const user = evt.data
+            console.log(user)
             await createUser({
                 userId: user.id,
                 email: user.email_addresses[0].email_address,
