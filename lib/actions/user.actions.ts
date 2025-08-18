@@ -20,7 +20,7 @@ export const createUser = async ({
 }:CreateUserParams): Promise<void> => {
 
     try {
-        connectToDB()
+        await connectToDB()
         await User.create({
             id: userId,
             username: username?.toLowerCase(),
