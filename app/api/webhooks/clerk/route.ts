@@ -1,4 +1,4 @@
-import { createUser } from '@/lib/actions/user.actions'
+import { createUser, updateUser } from '@/lib/actions/user.actions'
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
 import { NextRequest } from 'next/server'
 
@@ -12,6 +12,18 @@ export async function POST(req: NextRequest) {
             const user = evt.data
 
             await createUser({
+                userId: user.id,
+                email: user.email_addresses[0].email_address,
+                username: user.username || '',
+                name: `${user.first_name || ''} ${user.last_name || ''}`,
+                image: user.image_url || ''
+            })
+        }
+
+        if (evt.type === 'user.updated') {
+            const user = evt.data
+
+            await updateUser({
                 userId: user.id,
                 email: user.email_addresses[0].email_address,
                 username: user.username || '',
