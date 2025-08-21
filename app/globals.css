@@ -68,11 +68,11 @@
             @apply flex flex-1 items-start justify-start gap-3 sm:items-center;
         }
 
-       /*    .user-card_btn {
-            @apply h-auto min-w-[74px] rounded-lg bg-primary-500 text-[12px] text-light-1 !important;
+        .user-card_btn {
+            @apply h-auto min-w-[74px] rounded-lg bg-primary-500 text-[12px] text-light-1;
         }
 
-        .account-form_input {
+    /*       .account-form_input {
             @apply border border-dark-4 bg-dark-3 text-light-1 !important;
         }
 
